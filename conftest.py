@@ -16,7 +16,7 @@ def booking_dates():
     checkout_date = checkin_date + timedelta(days=5)
 
     return {
-        "checkin": checkin_date.strftime('%Y-%m-%d')
+        "checkin": checkin_date.strftime('%Y-%m-%d'),
         "checkout": checkout_date.strftime('%Y-%m-%d')
     }
 
@@ -26,14 +26,14 @@ def generate_random_booking_data(booking_dates):
     firstname = faker.first_name()
     lastname = faker.last_name()
     totalprice = faker.random_number(digits=3)
-    depositpade = faker.boolean()
+    depositpaid = faker.boolean()
     additionalneeds = faker.sentence()
 
     data = {
         "firstname": firstname,
         "lastname": lastname,
         "totalprice": totalprice,
-        "depositpade": depositpade,
+        "depositpaid": depositpaid,
         "bookingdates": booking_dates,
         "additionalneeds": additionalneeds
     }
