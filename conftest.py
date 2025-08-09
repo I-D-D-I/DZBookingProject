@@ -26,14 +26,14 @@ def generate_random_booking_data(booking_dates):
     firstname = faker.first_name()
     lastname = faker.last_name()
     totalprice = faker.random_number(digits=3)
-    depositpade = faker.boolean()
+    depositpaid = faker.boolean()
     additionalneeds = faker.sentence()
 
     data = {
         "firstname": firstname,
         "lastname": lastname,
         "totalprice": totalprice,
-        "depositpade": depositpade,
+        "depositpaid": depositpaid,
         "bookingdates": booking_dates,
         "additionalneeds": additionalneeds
     }

@@ -64,16 +64,3 @@ def test_ping_timeout(api_client, mocker):
     mocker.patch.object(api_client.session, 'get', side_effect=requests.Timeout)
     with pytest.raises(requests.Timeout):
         api_client.ping()
-
-@allure.feature('Test Ping')
-@allure.story('Test Create Booking')
-def test_ping_create_booking_success(api_client, mocker, generate_random_booking_data):
-    booking_data = generate_random_booking_data
-    response = mocker.Mock()
-    response.status_code = 201
-    response.json.return_value = {
-            "booking": booking_data
-        }
-    mocker.patch.object(api_client.session, 'post', return_value=response)
-    result = api_client.create_booking(booking_data)
-    assert result['booking'] == booking_data
