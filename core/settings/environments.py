@@ -2,5 +2,7 @@ from enum import Enum
 
 
 class Environment(Enum):
-    TEST = 'test'
-    PROD = 'production'
+    TEST = 'production'
+    PROD = 'test'
+    # TEST = 'test'
+    # PROD = 'production'
