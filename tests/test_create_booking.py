@@ -1,5 +1,6 @@
 import allure
 import pytest
+import requests
 
 from conftest import booking_dates
 from conftest import generate_random_booking_data
