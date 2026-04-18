@@ -64,3 +64,14 @@ def test_ping_timeout(api_client, mocker):
     mocker.patch.object(api_client.session, 'get', side_effect=requests.Timeout)
     with pytest.raises(requests.Timeout):
         api_client.ping()
+
+
+@allure.feature('Test Ping')
+@allure.story('Test delayed response')
+def test_ping_delayed_response(api_client, mocker):
+    mock_response = mocker.Mock()
+    mock_response.status_code = 201
+    mocker.patch.object(api_client.session, 'get', return_value=mock_response)
+    status_code = api_client.ping()
+
+    assert status_code == 201, f"Expected status 201 but got {status_code}"

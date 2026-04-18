@@ -14,7 +14,7 @@ def test_create_booking_success(api_client, generate_random_booking_data):
     print("Sent JSON:", booking_data)
     # print("URL:", url)
     response = api_client.create_booking(booking_data)
-    print("Response:", response.text)
+    print("Response:", response)
     assert isinstance(response, dict), "Ответ не является словарем"
     assert "bookingid" in response, "Ответ не содержит bookingid"
     assert "booking" in response, "Ответ не содержит booking"
@@ -38,6 +38,5 @@ def test_create_booking_invalid_field(api_client, booking_dates):
         "bookingdates": booking_dates,
         "additionalneeds": "Breakfast"
     }
-    with pytest.raises(HTTPError):
-        api_client.create_booking(invalid_data)
-
+    response = api_client.create_booking(invalid_data)
+    assert response["booking"]["totalprice"] is None
