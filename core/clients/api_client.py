@@ -88,14 +88,11 @@ class APIClient:
     def create_booking(self, booking_data):
         with allure.step("Creating booking"):
             url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT.value.lstrip('/')}"
-            print("Final URL used:", url)
-            print("Booking data:", booking_data)
             headers = {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
             response = self.session.post(url, json=booking_data, headers=headers)
-            print("Raw response:", response.text)
             response.raise_for_status()
         with allure.step('Checking status code'):
             assert response.status_code == 200 or response.status_code == 201, f"Expected status 200 or 201 but got {response.status_code}"
