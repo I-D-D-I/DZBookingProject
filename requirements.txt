@@ -10,8 +10,13 @@ jsonschema-specifications==2025.4.1
 packaging==25.0
 pluggy==1.6.0
 Pygments==2.19.2
-pytest==8.4.1
+pytest==9.0.3
 referencing==0.36.2
-requests==2.32.4
+requests==2.33.0
 rpds-py==0.25.1
-urllib3==2.5.0
+urllib3==2.6.3
+
+dotenv~=0.9.9
+python-dotenv~=1.1.1
+pip~=26.0
+Faker~=37.4.2
