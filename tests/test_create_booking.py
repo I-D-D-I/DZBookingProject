@@ -61,10 +61,10 @@ def test_create_booking_with_custom_data(api_client):
     except ValidationError as e:
         raise ValidationError(f"Response validation failed: {e}")
 
-                assert response ['booking']['firstname'] == booking_data['firstname']
-                assert response ['booking']['lastname'] == booking_data['lastname']
-                assert response ['booking']['totalprice'] == booking_data['totalprice']
-                assert response ['booking']['depositpaid'] == booking_data['depositpaid']
-                assert response ['booking']['bookingdates']['checkin'] == booking_data['bookingdates']['checkin']
-                assert response ['booking']['bookingdates']['checkout'] == booking_data['bookingdates']['checkout']
-                assert response ['booking']['additionalneeds'] == booking_data['additionalneeds']
+        assert response['booking']['firstname'] == booking_data['firstname']
+        assert response['booking']['lastname'] == booking_data['lastname']
+        assert response['booking']['totalprice'] == booking_data['totalprice']
+        assert response['booking']['depositpaid'] == booking_data['depositpaid']
+        assert response['booking']['bookingdates']['checkin'] == booking_data['bookingdates']['checkin']
+        assert response['booking']['bookingdates']['checkout'] == booking_data['bookingdates']['checkout']
+        assert response['booking']['additionalneeds'] == booking_data['additionalneeds']
