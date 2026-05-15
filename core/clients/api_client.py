@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from requests.auth import HTTPBasicAuth
 from core.settings.environments import Environment
 from core.clients.endpoints import Endpoints
-from core.settings.config import Users, Timeouts
+from core.settings.config import Timeouts, Users
 import allure
 
 load_dotenv()
